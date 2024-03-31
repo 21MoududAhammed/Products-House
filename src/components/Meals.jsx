@@ -1,6 +1,7 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 export default function Meals() {
+    const navigate = useNavigate();
   const meals = useLoaderData();
   return (
     <div className="my-5 mx-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4  gap-2 md:gap-4">
@@ -23,7 +24,9 @@ export default function Meals() {
             </div>
 
             <div className="mt-5 ">
-              <button className="btn btn-success w-full text-white text-xl hover:bg-rose-500 border-none">
+              <button className="btn btn-success w-full text-white text-xl hover:bg-rose-500 border-none"
+              onClick={()=> navigate(`/meals/${meal.idMeal}`)}
+              >
                 Show Details
               </button>
             </div>

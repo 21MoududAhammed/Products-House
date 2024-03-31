@@ -17,4 +17,14 @@ const loadProducts = async() =>{
     }
 }
 
-export {loadMeals, loadProducts}
+const loadMealDetails = async({params}) =>{
+    try{
+        const res = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${params.mealId}`);
+        const data = await res.json();
+        return data.meals[0];
+    }catch(err){
+        console.log(err)
+    }
+}
+
+export {loadMeals, loadProducts, loadMealDetails}

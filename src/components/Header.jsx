@@ -1,10 +1,12 @@
 import "../style.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { BsCartCheck } from "react-icons/bs";
 
 import logo from "../assets/e-commerce-logo.png";
 export default function Header() {
+  const navigate = useNavigate();
   return (
-    <div className="navbar bg-green-300">
+    <div className="navbar bg-green-300 sticky z-50 top-0 ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -118,6 +120,9 @@ export default function Header() {
         </ul>
       </div>
       <div className="navbar-end ">
+        <button className="text-3xl me-2" onClick={()=> navigate('/cart')}>
+          <BsCartCheck />
+        </button>
         <a className="btn me-1 md:me-2">Log In</a>
         <a className="btn">Register</a>
       </div>
