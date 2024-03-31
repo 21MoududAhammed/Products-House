@@ -126,8 +126,8 @@ export default function Header() {
           </button>
           <div className="absolute top-[-13px] left-4 bg-rose-600 rounded-full text-center text-white w-6 h-6  text-[13px] font-semibold">12</div>
         </div>
-        <a className="btn me-1 md:me-2">Log In</a>
-        <a className="btn">Register</a>
+        <NavLink to={'/login'} className="btn me-1 md:me-2">Log In</NavLink>
+        <NavLink to={'/register'} className="btn">Register</NavLink>
       </div>
     </div>
   );
