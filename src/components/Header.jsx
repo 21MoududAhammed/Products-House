@@ -1,4 +1,4 @@
-import '../style.css';
+import "../style.css";
 import { NavLink } from "react-router-dom";
 
 import logo from "../assets/e-commerce-logo.png";
@@ -28,13 +28,19 @@ export default function Header() {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 font-bold"
           >
             <li>
-              <a>Home</a>
+              <NavLink to={"/"} className={"nav-link"}>
+                Home
+              </NavLink>
             </li>
             <li>
-              <a>About</a>
+              <NavLink to={"/about"} className={"nav-link"}>
+                About
+              </NavLink>
             </li>
             <li>
-              <a>Contact</a>
+              <NavLink to={"/contact"} className={"nav-link"}>
+                Contact
+              </NavLink>
             </li>
           </ul>
         </div>
@@ -44,14 +50,20 @@ export default function Header() {
       </div>
       <div className="navbar-center hidden lg:flex font-bold">
         <ul className="menu menu-horizontal px-1">
-          <li >
-            <NavLink to={'/'} className={'nav-link'} >Home</NavLink>
+          <li>
+            <NavLink to={"/"} className={"nav-link"}>
+              Home
+            </NavLink>
           </li>
           <li>
-            <NavLink to={'/about'} className={'nav-link'} >About</NavLink>
+            <NavLink to={"/about"} className={"nav-link"}>
+              About
+            </NavLink>
           </li>
           <li>
-            <NavLink to={'/contact'} className={'nav-link'}>Contact</NavLink>
+            <NavLink to={"/contact"} className={"nav-link"}>
+              Contact
+            </NavLink>
           </li>
         </ul>
       </div>
