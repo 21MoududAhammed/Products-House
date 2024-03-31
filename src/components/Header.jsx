@@ -120,9 +120,12 @@ export default function Header() {
         </ul>
       </div>
       <div className="navbar-end ">
-        <button className="text-3xl me-2" onClick={()=> navigate('/cart')}>
-          <BsCartCheck />
-        </button>
+        <div className="relative me-5">
+          <button className="text-3xl" onClick={() => navigate("/cart")}>
+            <BsCartCheck />
+          </button>
+          <div className="absolute top-[-13px] left-4 bg-rose-600 rounded-full text-center text-white w-6 h-6  text-[13px] font-semibold">12</div>
+        </div>
         <a className="btn me-1 md:me-2">Log In</a>
         <a className="btn">Register</a>
       </div>
