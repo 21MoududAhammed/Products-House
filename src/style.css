@@ -2,3 +2,6 @@
     background-color: transparent !important;
     color: black !important;
 }
+.nav-link-active{
+    color: tomato !important;
+}

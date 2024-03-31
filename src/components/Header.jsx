@@ -28,17 +28,42 @@ export default function Header() {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 font-bold"
           >
             <li>
-              <NavLink to={"/"} className={"nav-link"}>
+              <NavLink
+                to={"/"}
+                className={({ isActive }) => {
+                  return `nav-link ${isActive && "nav-link-active"}`;
+                }}
+              >
                 Home
               </NavLink>
             </li>
             <li>
-              <NavLink to={"/about"} className={"nav-link"}>
+              <NavLink
+                to={"/meals"}
+                className={({ isActive }) => {
+                  return `nav-link ${isActive && "nav-link-active"}`;
+                }}
+              >
+                Meals
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to={"/about"}
+                className={({ isActive }) => {
+                  return `nav-link ${isActive && "nav-link-active"}`;
+                }}
+              >
                 About
               </NavLink>
             </li>
             <li>
-              <NavLink to={"/contact"} className={"nav-link"}>
+              <NavLink
+                to={"/contact"}
+                className={({ isActive }) => {
+                  return `nav-link ${isActive && "nav-link-active"}`;
+                }}
+              >
                 Contact
               </NavLink>
             </li>
@@ -51,17 +76,42 @@ export default function Header() {
       <div className="navbar-center hidden lg:flex font-bold">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <NavLink to={"/"} className={"nav-link"}>
+            <NavLink
+              to={"/"}
+              className={({ isActive }) => {
+                return `nav-link ${isActive && "nav-link-active"}`;
+              }}
+            >
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/about"} className={"nav-link"}>
+            <NavLink
+              to={"/meals"}
+              className={({ isActive }) => {
+                return `nav-link ${isActive && "nav-link-active"}`;
+              }}
+            >
+              Meals
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to={"/about"}
+              className={({ isActive }) => {
+                return `nav-link ${isActive && "nav-link-active"}`;
+              }}
+            >
               About
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/contact"} className={"nav-link"}>
+            <NavLink
+              to={"/contact"}
+              className={({ isActive }) => {
+                return `nav-link ${isActive && "nav-link-active"}`;
+              }}
+            >
               Contact
             </NavLink>
           </li>

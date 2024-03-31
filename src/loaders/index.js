@@ -7,5 +7,14 @@ const loadMeals = async() =>{
         console.log(err);
     }
 }
+const loadProducts = async() =>{
+    try{
+        const res = await fetch('https://fakestoreapi.com/products');
+        const data = await res.json();
+        return data;
+    }catch(err){
+        console.log(err);
+    }
+}
 
-export {loadMeals}
+export {loadMeals, loadProducts}
