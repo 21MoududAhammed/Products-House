@@ -1,7 +1,10 @@
+import '../style.css';
+import { NavLink } from "react-router-dom";
+
 import logo from "../assets/e-commerce-logo.png";
 export default function Header() {
   return (
-    <div className="navbar bg-green-400">
+    <div className="navbar bg-green-300">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -41,14 +44,14 @@ export default function Header() {
       </div>
       <div className="navbar-center hidden lg:flex font-bold">
         <ul className="menu menu-horizontal px-1">
-          <li>
-            <a>Home</a>
+          <li >
+            <NavLink to={'/'} className={'nav-link'} >Home</NavLink>
           </li>
           <li>
-            <a>About</a>
+            <NavLink to={'/about'} className={'nav-link'} >About</NavLink>
           </li>
           <li>
-            <a>Contact</a>
+            <NavLink to={'/contact'} className={'nav-link'}>Contact</NavLink>
           </li>
         </ul>
       </div>
