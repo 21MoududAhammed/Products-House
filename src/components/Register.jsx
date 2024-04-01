@@ -61,12 +61,10 @@ export default function Register() {
         displayName: user.name,
         photoURL: user.profile_img,
       });
-      console.log(res);
       toast(`Successfully Signed up ${res.user.email}`)
     } catch (err) {
       console.log(err.message);
       toast(err.message);
-     
     }
 
     navigate("/");

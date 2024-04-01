@@ -21,6 +21,7 @@ import Reset from "./components/Reset.jsx";
 import AuthProvider from "./providers/AuthProvider.jsx";
 import { ToastContainer } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
+import Profile from "./components/Profile.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -38,6 +39,7 @@ const router = createBrowserRouter(
       <Route path="/login" element={<LogIn />} />
       <Route path="/register" element={<Register />} />
       <Route path="/reset" element={<Reset />} />
+      <Route path="/profile" element={<Profile/>}/>
     </Route>
   )
 );
