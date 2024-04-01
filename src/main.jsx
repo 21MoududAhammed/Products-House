@@ -18,25 +18,32 @@ import MealDetails from "./components/MealDetails.jsx";
 import LogIn from "./components/LogIn.jsx";
 import Register from "./components/Register.jsx";
 import Reset from "./components/Reset.jsx";
+import AuthProvider from "./providers/AuthProvider.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route path="/" element={<Home />} loader={loadProducts} />
       <Route path="/meals" element={<Meals />} loader={loadMeals} />
-      <Route path="/meals/:mealId" element={<MealDetails/>} loader={loadMealDetails}/>
+      <Route
+        path="/meals/:mealId"
+        element={<MealDetails />}
+        loader={loadMealDetails}
+      />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
-      <Route path="/cart" element={<Cart/>}/>
-      <Route path="/login" element={<LogIn/>}/>
-      <Route path="/register" element={<Register/>}/>
-      <Route path="/reset" element={<Reset/>}/>
+      <Route path="/cart" element={<Cart />} />
+      <Route path="/login" element={<LogIn />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/reset" element={<Reset />} />
     </Route>
   )
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );

@@ -9,7 +9,7 @@ export default function Contact() {
                                 Get in touch: 
                             </h1>
                             <p className="text-normal text-lg sm:text-xl font-medium text-gray-600 mt-2">
-                                Fill in the htmlForm to start a conversation
+                                Fill in the form to start a conversation
                             </p>
 
                             <div className="flex items-center mt-8 text-gray-600">
@@ -85,7 +85,7 @@ export default function Contact() {
                             </div>
                         </div>
 
-                        <htmlForm className="p-6 flex flex-col justify-center">
+                        <form className="p-6 flex flex-col justify-center">
                             <div className="flex flex-col">
                                 <label htmlFor="name" className="hidden">
                                     Full Name
@@ -131,7 +131,7 @@ export default function Contact() {
                             >
                                 Submit
                             </button>
-                        </htmlForm>
+                        </form>
                     </div>
                 </div>
             </div>

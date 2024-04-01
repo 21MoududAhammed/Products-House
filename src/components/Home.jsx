@@ -1,9 +1,10 @@
 import { useLoaderData } from "react-router-dom";
 import { BsCart3 } from "react-icons/bs";
 
+
 export default function Home() {
   const products = useLoaderData();
-  console.log(products)
+ 
   return (
    
     <div className="my-5 mx-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4  gap-2 md:gap-4">
