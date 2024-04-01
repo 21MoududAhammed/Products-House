@@ -1,17 +1,21 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { MyAuthContext } from "../providers/AuthProvider";
+import { updateProfile } from "firebase/auth";
+import { auth } from "../firebase/firebase";
+import { toast } from "react-toastify";
 
 export default function Register() {
+  const navigate = useNavigate();
   const initialUserData = {
     name: "",
     email: "",
     password: "",
+    profile_img: "",
   };
   const [user, setUser] = useState(initialUserData);
   const [passwordError, setPasswordError] = useState(null);
-  const {registerUserWithEmailAndPassword} = MyAuthContext();
-
+  const { registerUserWithEmailAndPassword } = MyAuthContext();
 
   //   to handle input fields data
   const handleInputs = (e) => {
@@ -22,14 +26,13 @@ export default function Register() {
   };
 
   //   to handle submit
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     const userPassword = user.password;
     const lowerCase = /[a-z]/g;
     const upperCase = /[A-Z]/g;
     const numbers = /[0-9]/g;
-    
 
     if (!userPassword.match(lowerCase)) {
       setPasswordError("Add a lowercase letter!");
@@ -37,9 +40,9 @@ export default function Register() {
     } else if (!userPassword.match(upperCase)) {
       setPasswordError("Add a uppercase letter!");
       return;
-    }else if(userPassword.length < 8 || userPassword.length > 20){
-        setPasswordError('Password length should be in between 8 & 20.')
-        return;
+    } else if (userPassword.length < 8 || userPassword.length > 20) {
+      setPasswordError("Password length should be in between 8 & 20.");
+      return;
     } else if (!userPassword.match(numbers)) {
       setPasswordError("Add a number!");
       return;
@@ -49,8 +52,24 @@ export default function Register() {
 
     setUser(initialUserData); // clear all fields
 
-    const result = await registerUserWithEmailAndPassword(user.email, user.password);
-    console.log(result)
+    try {
+      const res = await registerUserWithEmailAndPassword(
+        user.email,
+        user.password
+      );
+      await updateProfile(auth.currentUser, {
+        displayName: user.name,
+        photoURL: user.profile_img,
+      });
+      console.log(res);
+      toast(`Successfully Signed up ${res.user.email}`)
+    } catch (err) {
+      console.log(err.message);
+      toast(err.message);
+     
+    }
+
+    navigate("/");
   };
 
   return (
@@ -100,6 +119,19 @@ export default function Register() {
           <p className="text-xs text-red-600">
             {passwordError && passwordError}
           </p>
+        </div>
+        <div>
+          <label htmlFor="profile_img">Profile Image</label>
+          <br />
+          <input
+            className="outline-none focus:border-blue-500 border-2 rounded px-2 border-gray-500 w-full"
+            type="text"
+            name="profile_img"
+            id="profile_img"
+            placeholder="Enter url"
+            value={user.profile_img}
+            onChange={handleInputs}
+          />
         </div>
         <div>
           <button
