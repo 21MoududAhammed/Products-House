@@ -1,9 +1,12 @@
 import { useLoaderData } from "react-router-dom";
 import { BsCart3 } from "react-icons/bs";
+import { MyCartContext } from "../providers/CartProvider";
 
 
 export default function Home() {
   const products = useLoaderData();
+  const {handleAddToCart} = MyCartContext();
+  
  
   return (
    
@@ -30,7 +33,7 @@ export default function Home() {
             </div>
 
             <div className="mt-5 ">
-              <button className="btn btn-success w-full text-white text-xl hover:bg-rose-500 border-none">
+              <button className="btn btn-success w-full text-white text-xl hover:bg-rose-500 border-none" onClick={()=> handleAddToCart(product)} >
                 Add To Cart <BsCart3 />
               </button>
             </div>

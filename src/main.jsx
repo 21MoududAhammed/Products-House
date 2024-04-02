@@ -19,9 +19,10 @@ import LogIn from "./components/LogIn.jsx";
 import Register from "./components/Register.jsx";
 import Reset from "./components/Reset.jsx";
 import AuthProvider from "./providers/AuthProvider.jsx";
-import { ToastContainer } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Profile from "./components/Profile.jsx";
+import CartProvider from "./providers/CartProvider.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -39,7 +40,7 @@ const router = createBrowserRouter(
       <Route path="/login" element={<LogIn />} />
       <Route path="/register" element={<Register />} />
       <Route path="/reset" element={<Reset />} />
-      <Route path="/profile" element={<Profile/>}/>
+      <Route path="/profile" element={<Profile />} />
     </Route>
   )
 );
@@ -47,8 +48,10 @@ const router = createBrowserRouter(
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
-      <ToastContainer/>
+      <CartProvider>
+        <RouterProvider router={router} />
+      </CartProvider>
+      <ToastContainer />
     </AuthProvider>
   </React.StrictMode>
 );

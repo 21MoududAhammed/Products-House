@@ -6,10 +6,14 @@ import { CgProfile } from "react-icons/cg";
 import logo from "../assets/e-commerce-logo.png";
 import { MyAuthContext } from "../providers/AuthProvider";
 import { toast } from "react-toastify";
+import { MyCartContext } from "../providers/CartProvider";
+
+
 export default function Header() {
   const navigate = useNavigate();
   const { isLoggedIn, logOut } = MyAuthContext();
- 
+  const {cart} = MyCartContext();
+
   // to log out
   const handleLogOut = async () => {
     try {
@@ -19,7 +23,7 @@ export default function Header() {
       toast(err.message);
     }
   };
-  
+
   return (
     <div className="navbar bg-green-300 sticky z-40 top-0 ">
       <div className="navbar-start">
@@ -135,30 +139,36 @@ export default function Header() {
         </ul>
       </div>
       <div className="navbar-end ">
+        {/* cart  */}
         <div className="relative me-5">
           <button className="text-3xl" onClick={() => navigate("/cart")}>
             <BsCartCheck />
           </button>
           <div className="absolute top-[-13px] left-4 bg-rose-600 rounded-full text-center text-white w-6 h-6  text-[13px] font-semibold">
-            12
+            {cart.length}
           </div>
         </div>
+        {/* cart end  */}
 
-        <div className="h-8 w-8 me-2">
-          {isLoggedIn?.photoURL ? (
-            <Link to={'/profile'}>
-              <img
-              className="w-full rounded-full"
-              src="https://avatars.githubusercontent.com/u/108451598?v=4"
-              alt=""
-            />
-            </Link>
-          ) : (
-            <Link to={'/profile'} className="text-3xl">
-              <CgProfile />
-            </Link>
-          )}
-        </div>
+        {/* profile  */}
+        {isLoggedIn && (
+          <div className="h-8 w-8 me-2">
+            {isLoggedIn?.photoURL ? (
+              <Link to={"/profile"}>
+                <img
+                  className="w-full rounded-full"
+                  src="https://avatars.githubusercontent.com/u/108451598?v=4"
+                  alt=""
+                />
+              </Link>
+            ) : (
+              <Link to={"/profile"} className="text-3xl">
+                <CgProfile />
+              </Link>
+            )}
+          </div>
+        )}
+        {/* profile end  */}
 
         {isLoggedIn ? (
           <NavLink className="btn" onClick={handleLogOut}>
