@@ -21,8 +21,8 @@ export default function useLocalStorage(storageKey, defaultValue){
     }
   }
 // remove a item 
-  const removeFromLocalStorage = data =>{
-    const remainingValue = storedValue.filter(item => item !== data);
+  const removeFromLocalStorage = id =>{
+    const remainingValue = storedValue.filter(item => item.p_id !== id);
     setStoredValue(remainingValue);
   }
 //   increase quantity of a item 
