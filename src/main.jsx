@@ -36,7 +36,7 @@ const router = createBrowserRouter(
       />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
-      <Route path="/cart" element={<Cart />} />
+      <Route path="/cart" element={<Cart />}/>
       <Route path="/login" element={<LogIn />} />
       <Route path="/register" element={<Register />} />
       <Route path="/reset" element={<Reset />} />

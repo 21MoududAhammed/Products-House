@@ -1,9 +1,12 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import { FaMinus, FaPlus } from "react-icons/fa";
+import { FaMinus, FaPlus  } from "react-icons/fa";
+import { RiDeleteBinLine } from "react-icons/ri";
+import { MyCartContext } from "../providers/CartProvider";
 
 export default function CartItem({ item }) {
   const [count, setCount] = useState(1);
+  const {handleRemoveFromCart} = MyCartContext();
   const handleMinusQuantity = () => {
     if (count > 1) {
       setCount(count - 1);
@@ -11,16 +14,20 @@ export default function CartItem({ item }) {
   };
   return (
     <div
-      key={item.id}
+      key={item?.id}
       className="grid grid-cols-12 my-5 border-2 border-blue-gray p-2 space-x-4 rounded"
     >
       <div className="flex items-center gap-2 col-span-9 md:col-span-10 ">
-        <img className="w-20 h-14 rounded-xl" src={item.image} alt="" />
+        <img className="w-20 h-14 rounded-xl" src={item?.image} alt="" />
         <div>
-          <h4 className="text-lg font-semibold">{item.title}</h4>
-          <h5>Price: ${item.price}</h5>
-          <h5>Total: ${item.price}</h5>
+          <h4 className="text-lg font-semibold">{item?.title}</h4>
+          <h5>Price: ${item?.price}</h5>
+          <h5>Total: ${count*item?.price}</h5>
+          <button className="flex items-center gap-2 bg-rose-600 rounded px-2 text-white font-semibold" onClick={()=> handleRemoveFromCart(item?.id) }>
+            Remove<RiDeleteBinLine/>
+        </button>
         </div>
+        
       </div>
       <div className="col-span-3 md:col-span-2 flex justify-end items-center">
         <div className="">
@@ -60,5 +67,5 @@ export default function CartItem({ item }) {
 }
 
 CartItem.propTypes = {
-  item: PropTypes.object.isRequired,
+  item: PropTypes.object,
 };

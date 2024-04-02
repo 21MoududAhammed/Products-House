@@ -33,7 +33,7 @@ export default function Home() {
             </div>
 
             <div className="mt-5 ">
-              <button className="btn btn-success w-full text-white text-xl hover:bg-rose-500 border-none" onClick={()=> handleAddToCart(product)} >
+              <button className="btn btn-success w-full text-white text-xl hover:bg-rose-500 border-none" onClick={()=> handleAddToCart(product.id)} >
                 Add To Cart <BsCart3 />
               </button>
             </div>
