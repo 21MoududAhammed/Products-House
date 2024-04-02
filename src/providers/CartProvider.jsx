@@ -10,7 +10,7 @@ const MyCartContext = () => {
 
 export default function CartProvider({ children }) {
   const [products, setProducts] = useState([]);
-  const { storedValue, addToLocalStorage, removeFromLocalStorage,increaseQuantity } =
+  const { storedValue, addToLocalStorage, removeFromLocalStorage,increaseQuantity,decreaseQuantity } =
     useLocalStorage("cart", []);
 
   const handleAddToCart = (id) => {
@@ -32,7 +32,7 @@ export default function CartProvider({ children }) {
 //   console.log(cart);
   return (
     <CartContext.Provider
-      value={{ cart,storedValue, handleAddToCart, handleRemoveFromCart, increaseQuantity }}
+      value={{ cart,storedValue, handleAddToCart, handleRemoveFromCart, increaseQuantity, decreaseQuantity }}
     >
       {children}
     </CartContext.Provider>

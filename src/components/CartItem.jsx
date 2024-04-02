@@ -5,15 +5,16 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import { MyCartContext } from "../providers/CartProvider";
 
 export default function CartItem({ item }) {
-  const { handleRemoveFromCart, increaseQuantity, storedValue } =
+  const { handleRemoveFromCart, increaseQuantity,decreaseQuantity, storedValue } =
     MyCartContext();
   const itemFromLocalStorage = storedValue.find(
     (value) => value.p_id === item.id
   );
   const [count, setCount] = useState(itemFromLocalStorage.quantity);
-  const handleMinusQuantity = () => {
+  const handleDecreaseQuantity = (id) => {
     if (count > 1) {
       setCount(count - 1);
+      decreaseQuantity(id)
     }
   };
 
@@ -65,7 +66,7 @@ export default function CartItem({ item }) {
           <div>
             <button
               className="bg-gray-300 w-14 p-1 text-centner rounded"
-              onClick={handleMinusQuantity}
+              onClick={()=> handleDecreaseQuantity(item?.id)}
             >
               <div className="flex justify-center ">
                 <FaMinus />

@@ -11,7 +11,7 @@ export default function useLocalStorage(storageKey, defaultValue){
     localStorage.setItem(storageKey, JSON.stringify(storedValue))
   },[storedValue,storageKey])
 
-//   add a data 
+//   add a item 
   const addToLocalStorage = id =>{
     const isItem = storedValue?.find(value => value.p_id === id);
     if(!isItem){
@@ -20,12 +20,12 @@ export default function useLocalStorage(storageKey, defaultValue){
         toast(`This product already added.`)
     }
   }
-// remove a data 
+// remove a item 
   const removeFromLocalStorage = data =>{
     const remainingValue = storedValue.filter(item => item !== data);
     setStoredValue(remainingValue);
   }
-//   increase quantity of a data 
+//   increase quantity of a item 
 const increaseQuantity = (id) =>{
     const nextStoredValue = storedValue.map(value => {
         if(value.p_id === id){
@@ -35,8 +35,20 @@ const increaseQuantity = (id) =>{
         }
     })
     setStoredValue(nextStoredValue)
-    
+}
+    // decrease quantity of a item 
+const decreaseQuantity = (id) =>{
+    const nextStoredValue = storedValue.map(value => {
+        if(value.p_id === id && value.quantity > 1){
+            return {...value, quantity: value.quantity - 1}
+        }else{
+            return value;
+        }
+    })
+    setStoredValue(nextStoredValue)
 }
 
-  return {storedValue, addToLocalStorage, removeFromLocalStorage, increaseQuantity}
+
+
+  return {storedValue, addToLocalStorage, removeFromLocalStorage, increaseQuantity, decreaseQuantity}
 }
