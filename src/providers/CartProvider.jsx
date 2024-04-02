@@ -10,8 +10,11 @@ const MyCartContext = () => {
 
 export default function CartProvider({ children }) {
   const [products, setProducts] = useState([]);
+//   const [total, setTotal] = useState(0);
+
   const { storedValue, addToLocalStorage, removeFromLocalStorage,increaseQuantity,decreaseQuantity } =
     useLocalStorage("cart", []);
+
 
   const handleAddToCart = (id) => {
     addToLocalStorage(id);
