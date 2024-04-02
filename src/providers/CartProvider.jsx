@@ -10,7 +10,7 @@ const MyCartContext = () => {
 
 export default function CartProvider({ children }) {
   const [products, setProducts] = useState([]);
-  const { storedValue, addToLocalStorage, removeFromLocalStorage } =
+  const { storedValue, addToLocalStorage, removeFromLocalStorage,increaseQuantity } =
     useLocalStorage("cart", []);
 
   const handleAddToCart = (id) => {
@@ -26,13 +26,13 @@ export default function CartProvider({ children }) {
   }, []);
 
   const cart = storedValue?.map((value) => {
-    return products.find((product) => product.id === value);
+    return products.find((product) => product.id === value.p_id);
   });
 
 //   console.log(cart);
   return (
     <CartContext.Provider
-      value={{ cart, handleAddToCart, handleRemoveFromCart }}
+      value={{ cart,storedValue, handleAddToCart, handleRemoveFromCart, increaseQuantity }}
     >
       {children}
     </CartContext.Provider>
