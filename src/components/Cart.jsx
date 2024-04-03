@@ -59,19 +59,19 @@ export default function Cart() {
             <div className="flex justify-between items-center border-b-2 border-dotted my-2">
               <p>Subtotal: </p>
               <p>
-                $ <span>{bill}</span>
+                $ <span>{cart[0] ? bill : 0}</span>
               </p>
             </div>
             <div className="flex justify-between items-center border-b-2 border-dotted my-2">
               <p>Shipping: </p>
               <p>
-                $ <span>10</span>
+                $ <span>{cart[0] ? 10 : 0}</span>
               </p>
             </div>
             <div className="flex justify-between items-center border-b-2 border-dotted">
               <p>Total: </p>
               <p>
-                $ <span>{bill + 10}</span>
+                $ <span>{cart[0] ? bill + 10 : 0}</span>
               </p>
             </div>
             <div className="mt-5">

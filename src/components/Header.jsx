@@ -126,7 +126,7 @@ export default function Header() {
           <button className="text-3xl" onClick={() => navigate("/cart")}>
             <BsCartCheck />
           </button>
-          <div className="absolute top-[-13px] left-4 bg-rose-600 rounded-full text-center text-white w-6 h-6  text-[13px] font-semibold">
+          <div className={`absolute top-[-13px] left-4 bg-rose-600 rounded-full text-center text-white w-6 h-6  text-[13px] font-semibold ${cart.length || 'hidden'}`}>
             {cart.length}
           </div>
         </div>
