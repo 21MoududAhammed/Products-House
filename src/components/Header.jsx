@@ -141,7 +141,7 @@ export default function Header() {
             {isLoggedIn?.photoURL && isImage  ? (
               <Link to={"/profile"}>
                 <img
-                  className="w-full rounded-full"
+                  className="h-8 w-8 rounded-full"
                   src={isLoggedIn.photoURL}
                   onError={()=> setIsImage(false) }
                   alt=""

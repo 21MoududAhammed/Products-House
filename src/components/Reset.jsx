@@ -1,4 +1,4 @@
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MyAuthContext } from "../providers/AuthProvider";
 import { useState } from "react";
 import { toast } from "react-toastify";
