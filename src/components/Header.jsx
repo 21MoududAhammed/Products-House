@@ -7,11 +7,14 @@ import logo from "../assets/e-commerce-logo.png";
 import { MyAuthContext } from "../providers/AuthProvider";
 import { toast } from "react-toastify";
 import { MyCartContext } from "../providers/CartProvider";
+import { useState } from "react";
+
 
 
 export default function Header() {
   const navigate = useNavigate();
   const { isLoggedIn, logOut } = MyAuthContext();
+  const {isProfileImgLoaded, setIsProfileImgLoaded} = useState(true);
   const {cart} = MyCartContext();
 
   // to log out
@@ -135,11 +138,12 @@ export default function Header() {
         {/* profile  */}
         {isLoggedIn && (
           <div className="h-8 w-8 me-2">
-            {isLoggedIn?.photoURL ? (
+            {isLoggedIn?.photoURL && isProfileImgLoaded ? (
               <Link to={"/profile"}>
                 <img
                   className="w-full rounded-full"
-                  src="https://avatars.githubusercontent.com/u/108451598?v=4"
+                  src={isLoggedIn.photoURL}
+                  onError={()=> setIsProfileImgLoaded(false) }
                   alt=""
                 />
               </Link>

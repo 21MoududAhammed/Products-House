@@ -26,7 +26,7 @@ export default function Cart() {
       const totalPrice = cart?.reduce((accumulator, product) => {
         return accumulator + product.price * product.quantity;
       }, 0);
-      setBill(totalPrice);
+      setBill(totalPrice.toFixed(2));
     }
   }, [cart]);
 
