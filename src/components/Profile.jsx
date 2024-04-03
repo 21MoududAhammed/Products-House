@@ -4,7 +4,7 @@ export default function Profile() {
   const { isLoggedIn } = MyAuthContext();
  
   return (
-    <div className="flex justify-center ">
+    <div className="flex justify-center mx-2">
       <div className="my-5 border-2 border-gray-500 p-3 rounded">
         <div className="flex justify-center mb-3">
         <img className="w-56" src={isLoggedIn?.photoURL} alt="profile image" />

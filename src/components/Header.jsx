@@ -33,7 +33,7 @@ export default function Header() {
     <div className="navbar bg-white shadow sticky z-40 top-0 font-serif ">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden" onClick={()=>setIsShow(false)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -90,6 +90,7 @@ export default function Header() {
           <img className="h-full w-full rounded-xl" src={logo} alt="" />
         </div>
       </div>
+
       <div className="navbar-center hidden lg:flex font-bold">
         <ul className="menu menu-horizontal px-1">
           <li>
@@ -146,18 +147,18 @@ export default function Header() {
           <div>
             <div className="relative h-8 w-8 me-2">
               {isLoggedIn?.photoURL && isImage ? (
-                <Link onClick={handleIsShow}>
+                <div onClick={handleIsShow}>
                   <img
                     className="h-8 w-8 rounded-full"
                     src={isLoggedIn.photoURL}
                     onError={() => setIsImage(false)}
                     alt=""
                   />
-                </Link>
+                </div>
               ) : (
-                <Link to={"/profile"} className="text-3xl">
+                <div onClick={handleIsShow} className="text-3xl">
                   <CgProfile />
-                </Link>
+                </div>
               )}
               {isShow && (
                 <div className="absolute right-0 bg-white px-2 shadow pt-1 pb-2 w-28 ">
