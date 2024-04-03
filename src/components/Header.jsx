@@ -9,14 +9,12 @@ import { toast } from "react-toastify";
 import { MyCartContext } from "../providers/CartProvider";
 import { useState } from "react";
 
-
-
 export default function Header() {
   const navigate = useNavigate();
   const { isLoggedIn, logOut } = MyAuthContext();
   const [isImage, setIsImage] = useState(true);
-  const {cart} = MyCartContext();
-//  console.log(isImage)
+  const { cart } = MyCartContext();
+  //  console.log(isImage)
   // to log out
   const handleLogOut = async () => {
     try {
@@ -28,7 +26,7 @@ export default function Header() {
   };
 
   return (
-    <div className="navbar bg-green-300 sticky z-40 top-0 ">
+    <div className="navbar bg-white shadow sticky z-40 top-0 font-serif ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -61,7 +59,7 @@ export default function Header() {
                 Home
               </NavLink>
             </li>
-           
+
             <li>
               <NavLink
                 to={"/about"}
@@ -100,7 +98,7 @@ export default function Header() {
               Home
             </NavLink>
           </li>
-          
+
           <li>
             <NavLink
               to={"/about"}
@@ -129,7 +127,11 @@ export default function Header() {
           <button className="text-3xl" onClick={() => navigate("/cart")}>
             <BsCartCheck />
           </button>
-          <div className={`absolute top-[-13px] left-4 bg-rose-600 rounded-full text-center text-white w-6 h-6  text-[13px] font-semibold ${cart.length || 'hidden'}`}>
+          <div
+            className={`absolute top-[-13px] left-4 font-sans bg-rose-600 rounded-full text-center text-white w-6 h-6  text-[13px] font-semibold ${
+              cart.length || "hidden"
+            }`}
+          >
             {cart.length}
           </div>
         </div>
@@ -138,12 +140,12 @@ export default function Header() {
         {/* profile  */}
         {isLoggedIn && (
           <div className="h-8 w-8 me-2">
-            {isLoggedIn?.photoURL && isImage  ? (
+            {isLoggedIn?.photoURL && isImage ? (
               <Link to={"/profile"}>
                 <img
                   className="h-8 w-8 rounded-full"
                   src={isLoggedIn.photoURL}
-                  onError={()=> setIsImage(false) }
+                  onError={() => setIsImage(false)}
                   alt=""
                 />
               </Link>
@@ -157,16 +159,17 @@ export default function Header() {
         {/* profile end  */}
 
         {isLoggedIn ? (
-          <NavLink className="btn" onClick={handleLogOut}>
-            Log Out
+          <NavLink className=" me-1 md:me-2" onClick={handleLogOut}>
+            <button className="px-6 py-2 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+                Log Out
+              </button>
           </NavLink>
         ) : (
           <>
-            <NavLink to={"/login"} className="btn me-1 md:me-2">
-              Log In
-            </NavLink>
-            <NavLink to={"/register"} className="btn">
-              Register
+            <NavLink to={"/login"} className=" me-1 md:me-2">
+              <button className="px-6 py-2 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+                Login
+              </button>
             </NavLink>
           </>
         )}
