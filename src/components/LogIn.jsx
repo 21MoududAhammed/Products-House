@@ -38,7 +38,7 @@ export default function LogIn() {
       <div className="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
         <div className="px-6 py-4">
           <div className="flex justify-center mx-auto">
-            <h1 className="text-3xl">Sign In</h1>
+            <h1 className="text-3xl font-serif">Login</h1>
           </div>
           <form>
             <div className="w-full mt-4">
@@ -81,7 +81,7 @@ export default function LogIn() {
         </div>
         <div className="flex items-center justify-center py-4 text-center bg-gray-50 dark:bg-gray-700">
           <span className="text-sm text-gray-600 dark:text-gray-200">
-            Dont have an account?{" "}
+            {`Don't have an account?`}
           </span>
           <Link
             to={"/register"}

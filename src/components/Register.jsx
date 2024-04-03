@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MyAuthContext } from "../providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import { auth } from "../firebase/firebase";
@@ -50,8 +50,6 @@ export default function Register() {
       setPasswordError(null);
     }
 
-    setUser(initialUserData); // clear all fields
-
     try {
       const res = await registerUserWithEmailAndPassword(
         user.email,
@@ -61,92 +59,91 @@ export default function Register() {
         displayName: user.name,
         photoURL: user.profile_img,
       });
-      toast(`Successfully Signed up ${res.user.email}`)
+      toast(`Successfully Signed up ${res.user.email}`);
+      setUser(initialUserData); // clear all fields
+      navigate("/");
     } catch (err) {
       console.log(err.message);
       toast(err.message);
     }
-
-    navigate("/");
   };
 
   return (
-    <div className="w-[300px] mx-auto mt-10 px-4 py-5 bg-gray-300 rounded">
-      <h3 className="text-3xl font-bold text-center mb-3">Register</h3>
-      <form className="space-y-2">
-        <div>
-          <label htmlFor="name">Name</label>
-          <br />
-          <input
-            className="outline-none focus:border-blue-500 border-2 border-gray-500 rounded px-2 w-full"
-            type="text"
-            name="name"
-            id="name"
-            placeholder="Enter Name"
-            value={user.name}
-            onChange={handleInputs}
-            required
-          />
+    <div className="mt-5 px-5">
+      <div className="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
+        <div className="px-6 py-4">
+          <div className="flex justify-center mx-auto">
+            <h1 className="text-3xl font-serif">Register</h1>
+          </div>
+          <form>
+            <div className="w-full mt-4">
+              <input
+                className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300"
+                type="text"
+                placeholder="Enter Name"
+                name="name"
+                value={user.name}
+                onChange={handleInputs}
+              />
+            </div>
+            <div className="w-full mt-4">
+              <input
+                className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300"
+                type="email"
+                placeholder="Email Address"
+                aria-label="Email Address"
+                name="email"
+                value={user.email}
+                onChange={handleInputs}
+                required
+              />
+            </div>
+            <div className="w-full mt-4">
+              <input
+                className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300"
+                type="password"
+                placeholder="Password"
+                aria-label="Password"
+                name="password"
+                value={user.password}
+                onChange={handleInputs}
+                required
+              />
+              <p className="text-xs ps-1 text-red-600">{passwordError}</p>
+            </div>
+            <div className="w-full mt-4">
+              <input
+                className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300"
+                type="text"
+                placeholder="Profile Image url"
+                name="profile_img"
+                value={user.profile_img}
+                onChange={handleInputs}
+                required
+              />
+            </div>
+            <div className="flex items-center justify-between mt-4">
+              <button
+                className="w-full px-6 py-2 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50"
+                onClick={handleSubmit}
+              >
+                Register
+              </button>
+            </div>
+          </form>
         </div>
-        <div>
-          <label htmlFor="email">Email</label>
-          <br />
-          <input
-            className="outline-none focus:border-blue-500 border-2 rounded px-2 border-gray-500 w-full"
-            type="email"
-            name="email"
-            id="email"
-            placeholder="Enter Email"
-            value={user.email}
-            onChange={handleInputs}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <br />
-          <input
-            className="outline-none focus:border-blue-500 border-2 rounded px-2 border-gray-500 w-full"
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Enter Password"
-            value={user.password}
-            onChange={handleInputs}
-          />
-          <p className="text-xs text-red-600">
-            {passwordError && passwordError}
-          </p>
-        </div>
-        <div>
-          <label htmlFor="profile_img">Profile Image</label>
-          <br />
-          <input
-            className="outline-none focus:border-blue-500 border-2 rounded px-2 border-gray-500 w-full"
-            type="text"
-            name="profile_img"
-            id="profile_img"
-            placeholder="Enter url"
-            value={user.profile_img}
-            onChange={handleInputs}
-          />
-        </div>
-        <div>
-          <button
-            className="bg-blue-600 rounded w-full py-1 text-white font-semibold mt-5"
-            type="submit"
-            onClick={handleSubmit}
+        <div className="flex items-center justify-center py-4 text-center bg-gray-50 dark:bg-gray-700">
+          <span className="text-sm text-gray-600 dark:text-gray-200">
+            Do you have an account?{" "}
+          </span>
+          <Link
+            to={"/login"}
+            className="mx-2 text-sm font-bold text-blue-500 dark:text-blue-400 hover:underline"
           >
-            Register
-          </button>
+            Login
+          </Link>
         </div>
-        <div className="flex justify-around">
-          <p>Do you have an account?</p>
-          <NavLink to={"/login"} className={"text-blue-800"}>
-            Log In
-          </NavLink>
-        </div>
-      </form>
+      </div>
     </div>
   );
 }
