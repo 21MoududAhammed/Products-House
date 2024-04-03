@@ -14,9 +14,9 @@ import { useState } from "react";
 export default function Header() {
   const navigate = useNavigate();
   const { isLoggedIn, logOut } = MyAuthContext();
-  const {isProfileImgLoaded, setIsProfileImgLoaded} = useState(true);
+  const [isImage, setIsImage] = useState(true);
   const {cart} = MyCartContext();
-
+//  console.log(isImage)
   // to log out
   const handleLogOut = async () => {
     try {
@@ -138,12 +138,12 @@ export default function Header() {
         {/* profile  */}
         {isLoggedIn && (
           <div className="h-8 w-8 me-2">
-            {isLoggedIn?.photoURL && isProfileImgLoaded ? (
+            {isLoggedIn?.photoURL && isImage  ? (
               <Link to={"/profile"}>
                 <img
                   className="w-full rounded-full"
                   src={isLoggedIn.photoURL}
-                  onError={()=> setIsProfileImgLoaded(false) }
+                  onError={()=> setIsImage(false) }
                   alt=""
                 />
               </Link>
