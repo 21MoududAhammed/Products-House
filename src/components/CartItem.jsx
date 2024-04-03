@@ -1,20 +1,20 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { MyCartContext } from "../providers/CartProvider";
 
+// eslint-disable-next-line react/prop-types
 export default function CartItem({ item }) {
-  const { handleRemoveFromCart, increaseQuantity,decreaseQuantity, storedValue } =
+  const { handleRemoveFromCart, increaseQuantity, decreaseQuantity } =
     MyCartContext();
-  const itemFromLocalStorage = storedValue.find(
-    (value) => value.p_id === item.id
-  );
-  const [count, setCount] = useState(itemFromLocalStorage.quantity);
+
+  const [count, setCount] = useState(item.quantity);
   const handleDecreaseQuantity = (id) => {
     if (count > 1) {
       setCount(count - 1);
-      decreaseQuantity(id)
+      decreaseQuantity(id);
     }
   };
 
@@ -22,6 +22,7 @@ export default function CartItem({ item }) {
     setCount(count + 1);
     increaseQuantity(id);
   };
+
   return (
     <div
       key={item?.id}
@@ -66,7 +67,7 @@ export default function CartItem({ item }) {
           <div>
             <button
               className="bg-gray-300 w-14 p-1 text-centner rounded"
-              onClick={()=> handleDecreaseQuantity(item?.id)}
+              onClick={() => handleDecreaseQuantity(item?.id)}
             >
               <div className="flex justify-center ">
                 <FaMinus />
