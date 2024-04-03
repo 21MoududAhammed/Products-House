@@ -11,10 +11,8 @@ import Layout from "./components/Layout.jsx";
 import Home from "./components/Home.jsx";
 import About from "./components/About.jsx";
 import Contact from "./components/Contact.jsx";
-import { loadMealDetails, loadMeals, loadProducts } from "./loaders/index.js";
-import Meals from "./components/Meals.jsx";
+import { loadProducts } from "./loaders/index.js";
 import Cart from "./components/Cart.jsx";
-import MealDetails from "./components/MealDetails.jsx";
 import LogIn from "./components/LogIn.jsx";
 import Register from "./components/Register.jsx";
 import Reset from "./components/Reset.jsx";
@@ -28,12 +26,6 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route path="/" element={<Home />} loader={loadProducts} />
-      <Route path="/meals" element={<Meals />} loader={loadMeals} />
-      <Route
-        path="/meals/:mealId"
-        element={<MealDetails />}
-        loader={loadMealDetails}
-      />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/cart" element={<Cart />}/>
