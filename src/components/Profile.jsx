@@ -2,7 +2,7 @@ import { MyAuthContext } from "../providers/AuthProvider";
 
 export default function Profile() {
   const { isLoggedIn } = MyAuthContext();
-  console.log(isLoggedIn);
+ 
   return (
     <div className="flex justify-center ">
       <div className="my-5 border-2 border-gray-500 p-3 rounded">
