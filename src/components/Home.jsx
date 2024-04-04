@@ -11,7 +11,7 @@ export default function Home() {
       {products?.map((product) => {
         return (
           <div key={product.id} className=" flex justify-center">
-            <div className="max-w-xs overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 flex flex-col justify-between w-full">
+            <div className="max-w-xl overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 flex flex-col justify-between w-full">
               <div>
                 <div className="w-56 mx-auto">
                   <img
