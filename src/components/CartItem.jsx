@@ -29,7 +29,7 @@ export default function CartItem({ item }) {
       className="grid grid-cols-12 my-5 border-2 border-blue-gray p-2 space-x-4 rounded"
     >
       <div className="flex items-center gap-2 col-span-9 md:col-span-10 ">
-        <img className="w-20 h-14 rounded-xl" src={item?.image} alt="" />
+        <img className="w-20 h-14 rounded-xl" src={item?.thumbnail} alt="" />
         <div>
           <h4 className="text-lg font-semibold">{item?.title}</h4>
           <h5>Price: ${item?.price}</h5>
