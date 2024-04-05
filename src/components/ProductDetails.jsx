@@ -2,20 +2,27 @@ import { useLoaderData } from "react-router-dom";
 import { BsCart3 } from "react-icons/bs";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import Rating from "./Rating";
+import { useState } from "react";
 
 export default function ProductDetails() {
   const product = useLoaderData();
 
+  const [thumbnail, setThumbnail] = useState(product.thumbnail);
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-12 mx-3 md:mx-5 mt-6 md:mt-10 gap-3 ps-2 pt-2 pe-2 pb-8  shadow">
+    <div className="grid grid-cols-1 md:grid-cols-12 mx-3 md:mx-5 mt-6 md:mt-10 gap-5 md:gap-3 ps-2 pt-2 pe-2 pb-8  shadow">
       {/* images  */}
-      <div className="md:col-span-6 max-h-72 flex justify-center items-center rounded-xl">
+      <div className="md:col-span-6 max-h-72 flex justify-center items-center rounded-xl gap-3">
         <div className="flex flex-col justify-center gap-2 w-20 p-1">
           {product.images.map((url, index) => {
             return (
-              <div key={index}>
+              <div
+                className="w-full"
+                key={index}
+                onClick={() => setThumbnail(url)}
+              >
                 <img
-                  className="w-full h-10 rounded-xl"
+                  className="w-full max-h-14 rounded-xl"
                   src={url}
                   alt="Product image"
                 />
@@ -24,10 +31,10 @@ export default function ProductDetails() {
           })}
         </div>
         {/* thumbnail  */}
-        <div className="max-w-80 rounded-xl p-2">
+        <div className="max-w-80 w-full rounded-xl p-2">
           <img
-            className=" w-full h-full rounded-xl"
-            src={product.thumbnail}
+            className=" w-full max-h-56 rounded-xl"
+            src={thumbnail}
             alt="Product thumbnail"
           />
         </div>
