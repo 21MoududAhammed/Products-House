@@ -31,7 +31,7 @@ export default function Cart() {
   }, [cart]);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-12 m-2 md:m-3  md:gap-5 shadow-xl p-3 ">
+    <div className="grid grid-cols-1 md:grid-cols-12   md:gap-5 shadow-xl p-2 sm:p3 md:p4 ">
       {cart[0] ? (
         <div className="md:col-span-8">
           <h1 className="text-xl font-bold text-rose-600 text-center">

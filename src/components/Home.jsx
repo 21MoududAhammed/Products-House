@@ -64,7 +64,7 @@ export default function Home() {
                     />
                   </div>
                   <div className="px-4 py-2">
-                    <h1 className="text-xl font-bold text-gray-800 uppercase dark:text-white">
+                    <h1 className="text-xl text-center font-bold text-gray-800 uppercase dark:text-white">
                       {product.title}
                     </h1>
                   </div>

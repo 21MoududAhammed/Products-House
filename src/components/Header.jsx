@@ -25,6 +25,7 @@ export default function Header() {
       await logOut();
       toast(`Sign-out successful`);
     } catch (err) {
+      console.log(err);
       toast(err.message);
     }
   };
@@ -33,7 +34,12 @@ export default function Header() {
     <div className="navbar bg-white shadow sticky z-40 top-0 font-serif ">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden" onClick={()=>setIsShow(false)}>
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost lg:hidden"
+            onClick={() => setIsShow(false)}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -87,7 +93,9 @@ export default function Header() {
           </ul>
         </div>
         <div className="h-10 ">
-          <img className="h-full w-full rounded-xl" src={logo} alt="" />
+          <Link to={"/"}>
+            <img className="h-full w-full rounded-xl" src={logo} alt="logo" />
+          </Link>
         </div>
       </div>
 

@@ -7,6 +7,7 @@ import { MyCartContext } from "../providers/CartProvider";
 
 // eslint-disable-next-line react/prop-types
 export default function CartItem({ item }) {
+
   const { handleRemoveFromCart, increaseQuantity, decreaseQuantity } =
     MyCartContext();
 
@@ -26,10 +27,10 @@ export default function CartItem({ item }) {
   return (
     <div
       key={item?.id}
-      className="grid grid-cols-12 my-5 border-2 border-blue-gray p-2 space-x-4 rounded"
+      className="grid grid-cols-12 my-5  shadow p-2 space-x-4 rounded"
     >
       <div className="flex items-center gap-2 col-span-9 md:col-span-10 ">
-        <img className="w-20 h-14 rounded-xl" src={item?.thumbnail} alt="" />
+        <img className="w-20 h-14 rounded-xl" src={item?.thumbnail} alt="Product Image" />
         <div>
           <h4 className="text-lg font-semibold">{item?.title}</h4>
           <h5>Price: ${item?.price}</h5>
