@@ -2,6 +2,7 @@ import { BsCart3 } from "react-icons/bs";
 import { MyCartContext } from "../providers/CartProvider";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
+import { Link, useNavigate } from "react-router-dom";
 
 const perPageProductsLimit = 10;
 
@@ -9,6 +10,7 @@ export default function Home() {
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(0);
   const [morePage, setMorePage] = useState(true);
+  const navigate = useNavigate();
   const loaderRef = useRef();
 
   const { handleAddToCart } = MyCartContext();
@@ -74,12 +76,22 @@ export default function Home() {
                   <h1 className="text-lg font-bold text-white">
                     ${product.price}
                   </h1>
-                  <button
-                    className="px-2 py-1 text-xs font-semibold text-gray-900 uppercase transition-colors duration-300 transform bg-white rounded hover:bg-gray-200 focus:bg-gray-400 focus:outline-none flex items-center gap-1"
-                    onClick={() => handleAddToCart(product.id)}
-                  >
-                    Add to cart <BsCart3 />
-                  </button>
+
+                  <div className="flex items-center gap-1">
+                    <button
+                      className="px-2 py-1 text-xs font-semibold text-gray-900 uppercase transition-colors duration-300 transform bg-white rounded hover:bg-gray-200 focus:bg-gray-400 focus:outline-none flex items-center gap-1"
+                      onClick={() => navigate(`product-details/${product.id}`)}
+                    >
+                      Details
+                    </button>
+
+                    <button
+                      className="px-2 py-1 text-xs font-semibold text-gray-900 uppercase transition-colors duration-300 transform bg-white rounded hover:bg-gray-200 focus:bg-gray-400 focus:outline-none flex items-center gap-1"
+                      onClick={() => handleAddToCart(product.id)}
+                    >
+                      Add to cart <BsCart3 />
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

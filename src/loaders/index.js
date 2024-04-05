@@ -9,6 +9,18 @@ const loadProducts = async() =>{
     }
 }
 
+const loadProduct = async({params}) =>{
+    const {p_id} = params;
+    
+    try{
+        const res = await fetch(`https://dummyjson.com/products/${p_id}`)
+        const data = await res.json();
+        return data;
+    }catch(err){
+        console.log(err);
+    }
+}
 
 
-export { loadProducts }
+
+export { loadProducts, loadProduct }

@@ -11,7 +11,6 @@ import Layout from "./components/Layout.jsx";
 import Home from "./components/Home.jsx";
 import About from "./components/About.jsx";
 import Contact from "./components/Contact.jsx";
-import { loadProducts } from "./loaders/index.js";
 import Cart from "./components/Cart.jsx";
 import LogIn from "./components/LogIn.jsx";
 import Register from "./components/Register.jsx";
@@ -21,11 +20,13 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Profile from "./components/Profile.jsx";
 import CartProvider from "./providers/CartProvider.jsx";
+import ProductDetails from "./components/ProductDetails.jsx";
+import { loadProduct } from "./loaders/index.js";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
-      <Route path="/" element={<Home />} loader={loadProducts} />
+      <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/cart" element={<Cart />}/>
@@ -33,6 +34,7 @@ const router = createBrowserRouter(
       <Route path="/register" element={<Register />} />
       <Route path="/reset" element={<Reset />} />
       <Route path="/profile" element={<Profile />} />
+      <Route path="/product-details/:p_id" element={<ProductDetails/>} loader={loadProduct}/>
     </Route>
   )
 );
