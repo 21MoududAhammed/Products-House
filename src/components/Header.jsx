@@ -13,7 +13,8 @@ export default function Header() {
   const { isLoggedIn, logOut } = MyAuthContext();
   const [isImage, setIsImage] = useState(true);
   const [isShow, setIsShow] = useState(false);
-  const { cart } = MyCartContext();
+  // storedValue is the added products of localStorage 
+  const {storedValue } = MyCartContext();
 
   // to show a ul after clicking profile image
   const handleIsShow = () => {
@@ -142,10 +143,10 @@ export default function Header() {
           </button>
           <div
             className={`absolute top-[-13px] left-4 font-sans bg-rose-600 rounded-full text-center text-white w-6 h-6  text-[13px] font-semibold ${
-              cart.length || "hidden"
+              storedValue?.length || "hidden"
             }`}
           >
-            {cart.length}
+            {storedValue?.length}
           </div>
         </div>
         {/* cart end  */}
