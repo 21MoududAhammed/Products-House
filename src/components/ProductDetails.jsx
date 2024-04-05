@@ -82,20 +82,20 @@ export default function ProductDetails() {
           {product.description}
         </p>
         <Rating rating={product.rating} />
-        <div className="flex gap-10 mt-10">
+        <div className="flex justify-between sm:justify-normal sm:gap-8 md:gap-10 mt-10">
           {/* add to cart btn  */}
           <button
-            class="flex items-center gap-1 md:gap-2 px-2 sm:px-4 md:px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80"
+            class="flex items-center gap-1 md:gap-2 px-2 sm:px-4 md:px-6 py-2 font-medium tracking-wide text-xs sm:text-base text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80"
             onClick={() => onHandleAddToCart(product.id)}
           >
             Add To Cart{" "}
-            <span className="text-xl">
+            <span className="text-xs sm:text-xl ">
               <BsCart3 />
             </span>
           </button>
           {/* quantity changer  */}
-          <div className="flex items-center justify-center bg-white py-2 text-center w-28 border border-blue-500 rounded">
-            <div className="flex items-center ">
+          <div className="flex items-center justify-center bg-white  text-center  border border-blue-500 rounded">
+            <div className="flex items-center  px-2">
               <button onClick={() => handleIncreaseQuantity(product.id)}>
                 <FaPlus />
               </button>
