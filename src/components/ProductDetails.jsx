@@ -3,11 +3,13 @@ import { BsCart3 } from "react-icons/bs";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import Rating from "./Rating";
 import { useState } from "react";
+import { MyCartContext } from "../providers/CartProvider";
 
 export default function ProductDetails() {
   const product = useLoaderData();
-
   const [thumbnail, setThumbnail] = useState(product.thumbnail);
+
+  const {handleAddToCart} = MyCartContext();
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-12 mx-3 md:mx-5 mt-6 md:mt-10 gap-5 md:gap-3 ps-2 pt-2 pe-2 pb-8  shadow">
@@ -57,7 +59,9 @@ export default function ProductDetails() {
         <Rating rating={product.rating} />
         <div className="flex gap-10 mt-10">
           {/* add to cart btn  */}
-          <button class="flex items-center gap-1 md:gap-2 px-2 sm:px-4 md:px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+          <button class="flex items-center gap-1 md:gap-2 px-2 sm:px-4 md:px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80" 
+          onClick={()=> handleAddToCart(product.id)}
+          >
             Add To Cart{" "}
             <span className="text-xl">
               <BsCart3 />
