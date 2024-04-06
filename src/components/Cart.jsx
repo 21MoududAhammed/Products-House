@@ -52,7 +52,7 @@ export default function Cart() {
       {/* checkout  */}
       <div className="md:col-span-4  border-2 rounded  p-5 ">
         <div>
-          <h1 className="text-3xl font-bold mb-3 text-center text-rose-600">
+          <h1 className=" text-xl sm:text-3xl font-serif font-bold mb-3 text-center text-rose-600">
             Checkout Summery
           </h1>
           <div>

@@ -85,7 +85,7 @@ export default function ProductDetails() {
         <div className="flex justify-between sm:justify-normal sm:gap-8 md:gap-10 mt-10">
           {/* add to cart btn  */}
           <button
-            class="flex items-center gap-1 md:gap-2 px-2 sm:px-4 md:px-6 py-2 font-medium tracking-wide text-xs sm:text-base text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80"
+            className="flex items-center gap-1 md:gap-2 px-2 sm:px-4 md:px-6 py-2 font-medium tracking-wide text-xs sm:text-base text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80"
             onClick={() => onHandleAddToCart(product.id)}
           >
             Add To Cart{" "}
