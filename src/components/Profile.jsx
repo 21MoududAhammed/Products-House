@@ -2,17 +2,22 @@ import { MyAuthContext } from "../providers/AuthProvider";
 
 export default function Profile() {
   const { isLoggedIn } = MyAuthContext();
- 
+  console.log(isLoggedIn);
+
   return (
-    <div className="flex justify-center mx-2">
-      <div className="my-5 border-2 border-gray-500 p-3 rounded">
-        <div className="flex justify-center mb-3">
-        <img className="w-56" src={isLoggedIn?.photoURL} alt="profile image" />
-        </div>
-        <div>
-          <h3 className="text-xl">Name: {isLoggedIn?.displayName}</h3>
-          <h4 className="text-lg">Email: {isLoggedIn?.email}</h4>
-          <h4>EmailVerified: {isLoggedIn?.emailVerified ? "Yes" : "No"}</h4>
+    <div className="flex justify-center mt-5">
+      <div className="w-full max-w-xs overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 ">
+        <img className=" w-full h-56" src={isLoggedIn?.photoURL} alt="avatar" />
+        <div className="py-5 text-center ">
+          <h3 className="block text-xl font-bold text-gray-800 dark:text-white">
+            {isLoggedIn?.displayName}
+          </h3>
+          <p className="text-sm text-gray-700 dark:text-gray-200">
+            Email: {isLoggedIn?.email}
+          </p>
+          <p className="text-sm text-gray-700 dark:text-gray-200">
+            Verified: {isLoggedIn?.emailVerified ? "Yes" : "No"}
+          </p>
         </div>
       </div>
     </div>
