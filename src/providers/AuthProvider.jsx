@@ -15,28 +15,28 @@ const MyAuthContext = () => {
   return useContext(AuthContext);
 };
 
-// register
-const registerUserWithEmailAndPassword = async (email, password) => {
-  return await createUserWithEmailAndPassword(auth, email, password);
-};
-
-// log in
-const logInWithEmailAndPassword = async (email, password) => {
-  return await signInWithEmailAndPassword(auth, email, password);
-};
-
-//log out 
-const logOut = async() =>{
-    await signOut(auth)
-}
-
-//reset password
-const resetPassword = async(email)=>{
-   return await sendPasswordResetEmail(auth, email);
-}
-
 export default function AuthProvider({ children }) {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
+  // register
+  const registerUserWithEmailAndPassword = async (email, password) => {
+    return await createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  // log in
+  const logInWithEmailAndPassword = async (email, password) => {
+    return await signInWithEmailAndPassword(auth, email, password);
+  };
+
+  //log out
+  const logOut = async () => {
+    await signOut(auth);
+  };
+
+  //reset password
+  const resetPassword = async (email) => {
+    return await sendPasswordResetEmail(auth, email);
+  };
+
   //observer
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -46,7 +46,7 @@ export default function AuthProvider({ children }) {
         setIsLoggedIn(null);
       }
     });
-    return () => unsubscribe()
+    return () => unsubscribe();
   }, []);
 
   return (
@@ -56,7 +56,7 @@ export default function AuthProvider({ children }) {
         logInWithEmailAndPassword,
         isLoggedIn,
         logOut,
-        resetPassword
+        resetPassword,
       }}
     >
       {children}
