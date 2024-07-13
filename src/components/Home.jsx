@@ -1,5 +1,5 @@
-export default function Home(){
-    return (
-        <h1>Home Page</h1>
-    );
+import ProductCategories from "./ProductCategories";
+
+export default function Home() {
+  return <ProductCategories />;
 }
