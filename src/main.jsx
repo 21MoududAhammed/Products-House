@@ -8,7 +8,6 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import Layout from "./components/Layout.jsx";
-import Home from "./components/Home.jsx";
 import About from "./components/About.jsx";
 import Contact from "./components/Contact.jsx";
 import Cart from "./components/Cart.jsx";
@@ -23,11 +22,14 @@ import CartProvider from "./providers/CartProvider.jsx";
 import ProductDetails from "./components/ProductDetails.jsx";
 import { loadProduct } from "./loaders/index.js";
 import ErrorPage from "./components/ErrorPage";
+import AllProducts from "./components/AllProducts.jsx";
+import Home from "./components/Home";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />} errorElement={<ErrorPage/>}>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Home/>} />
+      <Route path="/all-products" element={<AllProducts />} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/cart" element={<Cart />}/>
@@ -35,7 +37,7 @@ const router = createBrowserRouter(
       <Route path="/register" element={<Register />} />
       <Route path="/reset" element={<Reset />} />
       <Route path="/profile" element={<Profile />} />
-      <Route path="/product-details/:p_id" element={<ProductDetails/>} loader={loadProduct}/>
+      <Route path="/all-products/product-details/:p_id" element={<ProductDetails/>} loader={loadProduct}/>
     </Route>
   )
 );

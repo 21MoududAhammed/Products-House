@@ -105,6 +105,7 @@ export default function Header() {
         <div className="navbar-center hidden lg:flex font-bold">
           <ul className="menu menu-horizontal px-1">
             <li>
+              {/* for home page  */}
               <NavLink
                 to={"/"}
                 className={({ isActive }) => {
@@ -112,6 +113,17 @@ export default function Header() {
                 }}
               >
                 Home
+              </NavLink>
+            </li>
+            {/* for all products  */}
+            <li>
+              <NavLink
+                to={"/all-products"}
+                className={({ isActive }) => {
+                  return `nav-link ${isActive && "nav-link-active"}`;
+                }}
+              >
+                All Products
               </NavLink>
             </li>
 
