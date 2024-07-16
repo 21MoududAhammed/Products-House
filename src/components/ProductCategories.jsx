@@ -55,8 +55,8 @@ export default function ProductCategories() {
   };
 
   return (
-    <section className="my-10 ">
-      <h2 className="text-center text-2xl md:text-4xl font-bold font-serif mb-8">
+    <section className="my-10">
+      <h2 className="text-center text-2xl md:text-4xl  text-gray-800 dark:text-white font-bold font-serif mb-8">
         Product Categories
       </h2>
 
@@ -73,12 +73,9 @@ export default function ProductCategories() {
             </div>
 
             <div className="py-5 text-center">
-              <a
-                href="#"
-                className="block text-3xl font-bold text-gray-800 dark:text-white"
-              >
+              <h3 className="block text-2xl font-bold font-serif text-gray-800 dark:text-white">
                 Beauty
-              </a>
+              </h3>
             </div>
           </div>
           {/* Beauty end  */}
@@ -94,12 +91,9 @@ export default function ProductCategories() {
             </div>
 
             <div className="py-5 text-center">
-              <a
-                href="#"
-                className="block text-3xl font-bold text-gray-800 dark:text-white"
-              >
+              <h3 className="block text-2xl font-bold font-serif text-gray-800 dark:text-white">
                 Fragnance
-              </a>
+              </h3>
             </div>
           </div>
           {/* fragnance end  */}
@@ -115,12 +109,9 @@ export default function ProductCategories() {
             </div>
 
             <div className="py-5 text-center">
-              <a
-                href="#"
-                className="block text-3xl font-bold text-gray-800 dark:text-white"
-              >
+              <h3 className="block text-2xl font-bold font-serif text-gray-800 dark:text-white">
                 Mens Shirts
-              </a>
+              </h3>
             </div>
           </div>
           {/* mens-shirt end  */}
@@ -136,12 +127,9 @@ export default function ProductCategories() {
             </div>
 
             <div className="py-5 text-center">
-              <a
-                href="#"
-                className="block text-3xl font-bold text-gray-800 dark:text-white"
-              >
+              <h3 className="block text-2xl font-bold font-serif text-gray-800 dark:text-white">
                 Mens Shoes
-              </a>
+              </h3>
             </div>
           </div>
           {/* mens-shirt end  */}
@@ -157,12 +145,9 @@ export default function ProductCategories() {
             </div>
 
             <div className="py-5 text-center">
-              <a
-                href="#"
-                className="block text-3xl font-bold text-gray-800 dark:text-white"
-              >
+              <h3 className="block text-2xl font-bold font-serif text-gray-800 dark:text-white">
                 Grocery
-              </a>
+              </h3>
             </div>
           </div>
           {/* grocery end  */}
@@ -178,12 +163,9 @@ export default function ProductCategories() {
             </div>
 
             <div className="py-5 text-center">
-              <a
-                href="#"
-                className="block text-3xl font-bold text-gray-800 dark:text-white"
-              >
+              <h3 className="block text-2xl font-bold font-serif text-gray-800 dark:text-white">
                 Laptop
-              </a>
+              </h3>
             </div>
           </div>
           {/* Laptop end  */}
