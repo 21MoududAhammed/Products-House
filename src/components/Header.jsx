@@ -72,6 +72,16 @@ export default function Header() {
                   Home
                 </NavLink>
               </li>
+              <li>
+                <NavLink
+                  to={"/products"}
+                  className={({ isActive }) => {
+                    return `nav-link ${isActive && "nav-link-active"}`;
+                  }}
+                >
+                  Products
+                </NavLink>
+              </li>
 
               <li>
                 <NavLink
@@ -118,12 +128,12 @@ export default function Header() {
             {/* for all products  */}
             <li>
               <NavLink
-                to={"/all-products"}
+                to={"/products"}
                 className={({ isActive }) => {
                   return `nav-link ${isActive && "nav-link-active"}`;
                 }}
               >
-                All Products
+                Products
               </NavLink>
             </li>
 
