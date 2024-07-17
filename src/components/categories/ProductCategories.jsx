@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useState, useEffect } from "react";
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 import Beauty from "./Beauty";
 import Fragnance from "./Fragnance";
@@ -13,7 +13,6 @@ import Grocery from "./Grocery";
 import Laptop from "./Laptop";
 import SmartPhones from "./SmartPhones";
 import Furniture from "./Furniture";
-
 
 export default function ProductCategories() {
   const settings = {
@@ -58,10 +57,10 @@ export default function ProductCategories() {
       },
     ],
   };
-   const navigate = useNavigate();
-  const goToTheDesireRoute = (category) =>{
-    navigate(`/${category}`)
-  }
+  const navigate = useNavigate();
+  const goToTheDesireRoute = (category) => {
+    navigate(`/${category}`);
+  };
 
   return (
     <section className="my-5 md:my-8">
@@ -72,14 +71,14 @@ export default function ProductCategories() {
       <div className="slider-container ">
         <Slider {...settings}>
           {/* categories start  */}
-          <Beauty goToTheDesireRoute={goToTheDesireRoute}/>
+          <MensShirt goToTheDesireRoute={goToTheDesireRoute} />
+          <MensShoes goToTheDesireRoute={goToTheDesireRoute} />
+          <Grocery goToTheDesireRoute={goToTheDesireRoute} />
+          <Laptop goToTheDesireRoute={goToTheDesireRoute} />
+          <SmartPhones goToTheDesireRoute={goToTheDesireRoute} />
+          <Furniture goToTheDesireRoute={goToTheDesireRoute} />
+          <Beauty goToTheDesireRoute={goToTheDesireRoute} />
           <Fragnance goToTheDesireRoute={goToTheDesireRoute} />
-          <MensShirt goToTheDesireRoute={goToTheDesireRoute}/>
-          <MensShoes goToTheDesireRoute={goToTheDesireRoute}/>
-          <Grocery goToTheDesireRoute={goToTheDesireRoute}/>
-          <Laptop goToTheDesireRoute={goToTheDesireRoute}/>
-          <SmartPhones goToTheDesireRoute={goToTheDesireRoute}/>
-          <Furniture goToTheDesireRoute={goToTheDesireRoute}/>
           {/* categories end  */}
         </Slider>
       </div>
