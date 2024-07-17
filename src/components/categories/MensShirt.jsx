@@ -6,7 +6,7 @@ export default function MensShirt({ goToTheDesireRoute }) {
       onClick={() => goToTheDesireRoute("mens-shirts")}
       className="w-full  max-w-xs overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 p-2 cursor-pointer"
     >
-      <div className=" h-56 px-10">
+      <div className=" h-36 md:h-56 px-10">
         <img className="w-full h-full  " src={mensShirt} alt="mens-shirt" />
       </div>
 

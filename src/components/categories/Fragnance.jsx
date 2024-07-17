@@ -3,7 +3,7 @@ import fragnance from "../../assets/categories/fragnance.jpg";
 export default function Fragnance({goToTheDesireRoute}) {
   return (
     <div onClick={()=> goToTheDesireRoute('fragrances')} className="w-full  max-w-xs overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 p-2 cursor-pointer">
-      <div className=" h-56">
+      <div className=" h-36 md:h-56">
         <img
           className="w-full h-full object-cover "
           src={fragnance}
