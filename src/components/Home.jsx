@@ -2,6 +2,7 @@ import ProductCategories from "./categories/ProductCategories";
 import banner from "../assets/banner_ph.png";
 import { useNavigate } from "react-router-dom";
 import ForYou from "./ForYou";
+import Contact from "./Contact";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -15,6 +16,7 @@ export default function Home() {
       </div>
       <ProductCategories />;
       <ForYou />
+      <Contact/>
     </div>
   );
 }

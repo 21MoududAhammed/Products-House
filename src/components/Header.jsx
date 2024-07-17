@@ -82,27 +82,6 @@ export default function Header() {
                   Products
                 </NavLink>
               </li>
-
-              <li>
-                <NavLink
-                  to={"/about"}
-                  className={({ isActive }) => {
-                    return `nav-link ${isActive && "nav-link-active"}`;
-                  }}
-                >
-                  About
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to={"/contact"}
-                  className={({ isActive }) => {
-                    return `nav-link ${isActive && "nav-link-active"}`;
-                  }}
-                >
-                  Contact
-                </NavLink>
-              </li>
             </ul>
           </div>
           <div className="h-10 ">
@@ -134,27 +113,6 @@ export default function Header() {
                 }}
               >
                 Products
-              </NavLink>
-            </li>
-
-            <li>
-              <NavLink
-                to={"/about"}
-                className={({ isActive }) => {
-                  return `nav-link ${isActive && "nav-link-active"}`;
-                }}
-              >
-                About
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to={"/contact"}
-                className={({ isActive }) => {
-                  return `nav-link ${isActive && "nav-link-active"}`;
-                }}
-              >
-                Contact
               </NavLink>
             </li>
           </ul>

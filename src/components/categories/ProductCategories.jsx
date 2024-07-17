@@ -64,7 +64,7 @@ export default function ProductCategories() {
 
   return (
     <section className="my-5 md:my-8">
-      <h2 className="text-center text-2xl md:text-4xl  text-gray-800 dark:text-white font-bold font-serif mb-8">
+      <h2 className="text-center text-4xl   text-gray-800 dark:text-white font-bold font-serif mb-8">
         Product Categories
       </h2>
 

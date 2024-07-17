@@ -8,7 +8,7 @@ export default function ForYou() {
   useEffect(() => {
     const fetchProducts = async () => {
       const res = await fetch(
-        `https://dummyjson.com/products/category/fragrances`
+        `https://dummyjson.com/products/category/groceries`
       );
       const data = await res.json();
       setProducts(data?.products);
@@ -19,7 +19,7 @@ export default function ForYou() {
 
   return (
     <div>
-      <h2 className="text-center text-2xl md:text-4xl  text-gray-800 dark:text-white font-bold font-serif mb-8">
+      <h2 className="text-center text-4xl   text-gray-800 dark:text-white font-bold font-serif mb-8">
         For You
       </h2>
       <div className="my-5 mx-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4  gap-2 md:gap-4">
