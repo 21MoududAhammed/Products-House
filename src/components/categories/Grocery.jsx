@@ -1,9 +1,9 @@
 
 import grocery from "../../assets/categories/grocery.jpg";
 
-export default function Grocery(){
+export default function Grocery({goToTheDesireRoute}){
     return (
-        <div className="w-full  max-w-xs overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 p-2">
+        <div onClick={()=> goToTheDesireRoute('groceries')} className="w-full  max-w-xs overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 p-2 cursor-pointer">
             <div className=" h-56">
               <img
                 className="w-full h-full object-cover "

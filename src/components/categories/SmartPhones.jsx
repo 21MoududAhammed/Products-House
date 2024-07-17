@@ -1,7 +1,7 @@
 import smartPhone from "../../assets/categories/smartPhoneImg.jpg";
-export default function SmartPhones() {
+export default function SmartPhones({goToTheDesireRoute}) {
   return (
-    <div className="w-full  max-w-xs overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 p-2">
+    <div onClick={()=> goToTheDesireRoute('smartphones')} className="w-full  max-w-xs overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 p-2 cursor-pointer">
       <div className=" h-56">
         <img
           className="w-full h-full object-cover border rounded-xl"

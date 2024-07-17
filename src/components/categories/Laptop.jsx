@@ -1,8 +1,8 @@
 import laptop from "../../assets/categories/laptop.jpg";
 
-export default function Laptop() {
+export default function Laptop({goToTheDesireRoute}) {
   return (
-    <div className="w-full  max-w-xs overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 p-2">
+    <div onClick={()=> goToTheDesireRoute('laptops')} className="w-full  max-w-xs overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 p-2 cursor-pointer">
       <div className=" h-56">
         <img
           className="w-full h-full object-cover "
