@@ -1,6 +1,18 @@
 import ProductCategories from "./categories/ProductCategories";
-
+import banner from "../assets/banner_ph.png";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
-  return <ProductCategories />;
+  const navigate = useNavigate();
+  const handleShopNow = () => {
+    navigate("/products");
+  };
+  return (
+    <div>
+      <div onClick={handleShopNow}>
+        <img src={banner} alt="banner" />
+      </div>
+      <ProductCategories />;
+    </div>
+  );
 }
