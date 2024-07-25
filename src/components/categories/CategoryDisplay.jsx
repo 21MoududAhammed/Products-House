@@ -1,10 +1,12 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { BsCart3 } from "react-icons/bs";
+import {useNavigate} from 'react-router-dom';
 
 export default function CategoryDisplay() {
   const { category } = useParams();
   const [products, setProducts] = useState([]);
+  const navigate = useNavigate();
 
 //   load products based on category 
   useEffect(() => {
@@ -48,7 +50,7 @@ export default function CategoryDisplay() {
                 <div className="flex items-center gap-1">
                   <button
                     className="px-2 py-1 text-xs font-semibold text-gray-900 uppercase transition-colors duration-300 transform bg-white rounded hover:bg-gray-200 focus:bg-gray-400 focus:outline-none flex items-center gap-1"
-                    onClick={() => navigate(`product-details/${product.id}`)}
+                    onClick={() => navigate(`/products/product-details/${product.id}`)}
                   >
                     Details
                   </button>
