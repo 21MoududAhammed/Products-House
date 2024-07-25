@@ -23,9 +23,11 @@ import ErrorPage from "./components/ErrorPage";
 import AllProducts from "./components/AllProducts.jsx";
 import Home from "./components/Home";
 import CategoryDisplay from "./components/categories/CategoryDisplay";
+import NotFound from "./components/NotFound";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
+    
     <Route path="/" element={<Layout />} errorElement={<ErrorPage />}>
       <Route path="/" element={<Home />} />
       <Route path="/products" element={<AllProducts />} />
@@ -40,6 +42,7 @@ const router = createBrowserRouter(
         loader={loadProduct}
       />
       <Route path="/:category" element={<CategoryDisplay />} />
+      <Route path="*" element={<NotFound />}></Route>
     </Route>
   )
 );
