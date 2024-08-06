@@ -11,13 +11,14 @@ export default function Cart() {
   const [address, setAddress] = useState("");
   const [bill, setBill] = useState(0);
 
+  //  to place the order
   const handlePlaceOrder = (e) => {
     e.preventDefault();
     if (!address) {
       toast("Please give your address.");
     } else {
       toast("Your order placed.");
-      navigate('/')
+      navigate("/");
     }
   };
 
@@ -38,7 +39,9 @@ export default function Cart() {
             Added Products
           </h1>
           {cart?.map((item) => {
-            return <CartItem key={item?.id} item={item} />;
+            if (item) {
+              return <CartItem key={item?.id} item={item} />;
+            }
           })}
         </div>
       ) : (

@@ -1,24 +1,16 @@
 import { useState, useEffect } from "react";
 import { BsCart3 } from "react-icons/bs";
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
+import useFetchCategoryProducts from "../hooks/useFetchCategoryProducts";
+import {MyCartContext} from "../providers/CartProvider"
+
 
 export default function ForYou() {
-  const [products, setProducts] = useState([]);
   const navigate = useNavigate();
+  const {handleAddToCart} = MyCartContext();
 
-  //   load products based on category
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const res = await fetch(
-        `https://dummyjson.com/products/category/groceries`
-      );
-      const data = await res.json();
-      setProducts(data?.products);
-    };
-
-    fetchProducts();
-  }, []);
-
+  const { products, loading, error } = useFetchCategoryProducts("groceries");
+  MyCartContext
   return (
     <div>
       <h2 className="text-center text-4xl   text-gray-800 dark:text-white font-bold font-serif mb-8">
@@ -52,7 +44,9 @@ export default function ForYou() {
                   <div className="flex items-center gap-1">
                     <button
                       className="px-2 py-1 text-xs font-semibold text-gray-900 uppercase transition-colors duration-300 transform bg-white rounded hover:bg-gray-200 focus:bg-gray-400 focus:outline-none flex items-center gap-1"
-                      onClick={() => navigate(`/products/product-details/${product.id}`)}
+                      onClick={() =>
+                        navigate(`/products/product-details/${product.id}`)
+                      }
                     >
                       Details
                     </button>

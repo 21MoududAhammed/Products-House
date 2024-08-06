@@ -7,17 +7,20 @@ import { MyCartContext } from "../providers/CartProvider";
 
 // eslint-disable-next-line react/prop-types
 export default function CartItem({ item }) {
+  // console.log(item);
   const { handleRemoveFromCart, increaseQuantity, decreaseQuantity } =
     MyCartContext();
 
-  const [count, setCount] = useState(item.quantity);
+  const [count, setCount] = useState(item?.quantity);
+
+  // to decrease quantity 
   const handleDecreaseQuantity = (id) => {
     if (count > 1) {
       setCount(count - 1);
       decreaseQuantity(id);
     }
   };
-
+//  to increase quantity 
   const handleIncreaseQuantity = (id) => {
     setCount(count + 1);
     increaseQuantity(id);

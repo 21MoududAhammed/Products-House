@@ -3,11 +3,13 @@ import PropTypes from "prop-types";
 import { loadProducts } from "../loaders";
 import useLocalStorage from "../hooks/useLocalStorage";
 
+// context 
 const CartContext = createContext(null);
 const MyCartContext = () => {
   return useContext(CartContext);
 };
 
+// provider 
 export default function CartProvider({ children }) {
   const [products, setProducts] = useState([]);
 
