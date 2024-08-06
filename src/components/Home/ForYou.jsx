@@ -1,16 +1,14 @@
-import { useState, useEffect } from "react";
 import { BsCart3 } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
-import useFetchCategoryProducts from "../hooks/useFetchCategoryProducts";
-import {MyCartContext} from "../providers/CartProvider"
-
+import useFetchCategoryProducts from "../../hooks/useFetchCategoryProducts";
+import { MyCartContext } from "../../providers/CartProvider";
 
 export default function ForYou() {
   const navigate = useNavigate();
-  const {handleAddToCart} = MyCartContext();
+  const { handleAddToCart } = MyCartContext();
 
   const { products, loading, error } = useFetchCategoryProducts("groceries");
-  MyCartContext
+  MyCartContext;
   return (
     <div>
       <h2 className="text-center text-4xl   text-gray-800 dark:text-white font-bold font-serif mb-8">

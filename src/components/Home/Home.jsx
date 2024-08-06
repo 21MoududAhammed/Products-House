@@ -1,8 +1,8 @@
-import ProductCategories from "./categories/ProductCategories";
-import banner from "../assets/banner_ph.png";
 import { useNavigate } from "react-router-dom";
-import ForYou from "./ForYou";
+import banner from "../../assets/banner_ph.png";
+import ProductCategories from "../categories/ProductCategories";
 import Contact from "./Contact";
+import ForYou from "./ForYou";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ export default function Home() {
       </div>
       <ProductCategories />;
       <ForYou />
-      <Contact/>
+      <Contact />
     </div>
   );
 }

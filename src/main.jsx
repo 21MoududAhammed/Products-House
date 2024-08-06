@@ -21,13 +21,12 @@ import ProductDetails from "./components/ProductDetails.jsx";
 import { loadProduct } from "./loaders/index.js";
 import ErrorPage from "./components/ErrorPage";
 import AllProducts from "./components/AllProducts.jsx";
-import Home from "./components/Home";
 import CategoryDisplay from "./components/categories/CategoryDisplay";
 import NotFound from "./components/NotFound";
+import Home from "./components/Home/Home";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    
     <Route path="/" element={<Layout />} errorElement={<ErrorPage />}>
       <Route path="/" element={<Home />} />
       <Route path="/products" element={<AllProducts />} />
