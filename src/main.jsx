@@ -19,15 +19,16 @@ import Profile from "./components/Profile.jsx";
 import CartProvider from "./providers/CartProvider.jsx";
 import ProductDetails from "./components/ProductDetails.jsx";
 import { loadProduct } from "./loaders/index.js";
-import ErrorPage from "./components/ErrorPage";
 import AllProducts from "./components/AllProducts.jsx";
 import CategoryDisplay from "./components/categories/CategoryDisplay";
 import NotFound from "./components/NotFound";
 import Home from "./components/Home/Home";
+import ProductDetails2 from "./components/PfoductDetails2";
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Layout />} errorElement={<ErrorPage />}>
+    <Route path="/" element={<Layout />}>
       <Route path="/" element={<Home />} />
       <Route path="/products" element={<AllProducts />} />
       <Route path="/cart" element={<Cart />} />
@@ -37,8 +38,7 @@ const router = createBrowserRouter(
       <Route path="/profile" element={<Profile />} />
       <Route
         path="/products/product-details/:p_id"
-        element={<ProductDetails />}
-        loader={loadProduct}
+        element={<ProductDetails/>}
       />
       <Route path="/:category" element={<CategoryDisplay />} />
       <Route path="*" element={<NotFound />}></Route>
