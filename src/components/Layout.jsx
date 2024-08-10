@@ -4,11 +4,13 @@ import Footer from "./Footer";
 
 export default function Layout() {
   return (
-    <div className="md:mx-5">
+    <div>
       <Header />
       <div className="max-w-screen-2xl mx-auto">
-        <Outlet />
-        <Footer />
+        <div className="md:mx-5">
+          <Outlet />
+          <Footer />
+        </div>
       </div>
     </div>
   );
