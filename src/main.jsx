@@ -23,7 +23,7 @@ import AllProducts from "./components/AllProducts.jsx";
 import CategoryDisplay from "./components/categories/CategoryDisplay";
 import NotFound from "./components/NotFound";
 import Home from "./components/Home/Home";
-import ProductDetails2 from "./components/PfoductDetails2";
+
 
 
 const router = createBrowserRouter(
