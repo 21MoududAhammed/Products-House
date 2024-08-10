@@ -52,7 +52,7 @@ export default function AllProducts() {
 
   return (
     <>
-      <div className="my-5 mx-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4  gap-2 md:gap-4">
+      <div className="my-5 mx-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-2 md:gap-4">
         {products?.map((product) => {
           return (
             <div key={product.id} className=" flex justify-center">

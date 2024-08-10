@@ -14,7 +14,7 @@ export default function ForYou() {
       <h2 className="text-center text-4xl   text-gray-800 dark:text-white font-bold font-serif mb-8">
         For You
       </h2>
-      <div className="my-5 mx-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4  gap-2 md:gap-4">
+      <div className="my-5 mx-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-2 md:gap-4">
         {products?.map((product) => {
           return (
             <div key={product.id} className=" flex justify-center">
