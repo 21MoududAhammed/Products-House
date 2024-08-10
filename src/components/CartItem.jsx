@@ -13,14 +13,14 @@ export default function CartItem({ item }) {
 
   const [count, setCount] = useState(item?.quantity);
 
-  // to decrease quantity 
+  // to decrease quantity
   const handleDecreaseQuantity = (id) => {
     if (count > 1) {
       setCount(count - 1);
       decreaseQuantity(id);
     }
   };
-//  to increase quantity 
+  //  to increase quantity
   const handleIncreaseQuantity = (id) => {
     setCount(count + 1);
     increaseQuantity(id);
@@ -38,8 +38,8 @@ export default function CartItem({ item }) {
         </div>
         <div>
           <h4 className="text-lg font-semibold">{item?.title}</h4>
-          <h5>Price: ${item?.price}</h5>
-          <h5>Total: ${count * item?.price}</h5>
+          <h5>Price: ${item?.price.toFixed(2)}</h5>
+          <h5>Total: ${(count * item?.price).toFixed(2)}</h5>
           <button
             className="flex items-center gap-2 bg-rose-400 rounded px-2 text-white font-semibold"
             onClick={() => handleRemoveFromCart(item?.id)}
